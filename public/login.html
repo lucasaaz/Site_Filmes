@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" type="image/x-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilo-Login.css" </head>
+
+<body>
+
+
+  <div id="login">
+    <h1 class="navbar-brand mx-auto" href="#">Meta<span>Views</span></h1>
+    <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+          <div id="login-box" class="col-md-12">
+            <form id="login-form" class="form" method="post" onsubmit="loginUser (this)" content=1;url="/usuario/autenticar">
+              <h3 class="text-center ">Faça <span>Login</span> com sua <span>Conta</span></h3>
+              <div class="form-group">
+                <label for="nome" id="csslog" class="">Usuário</label><br>
+                <input type="text" name="nome" id="nome" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="senha" class="">Senha</label><br>
+                <input type="senha" name="senha" id="senha" class="form-control">
+              </div>
+              <div class="form-group text-center">
+                <input type="submit" name="submit" class="botao_login1" value="Entrar">
+              </div>
+            </form>
+          </div>
+          <div class="form-group text-center">
+            <button type="button" class="botao_login2" data-toggle="modal" data-target="#loginModal">Criar nova
+              conta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Criar nova <span>Conta</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true     ">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="login-box" class="col-md-12">
+            <form id="login-form" class="form" method="post" onsubmit="loginUser (this)" content=1;url="/assiste/insert">
+              <h3 class="criar_nova_conta text-center ">Novo usuário</h3>
+              <div class="form-group">
+                <label for="nome" class="criar_nova_conta">Nome do Usuário</label><br>
+                <input type="text" name="txt_login" id="txt_login" class="form-control">
+              </div>
+              <!--
+                            <div class="form-group">
+                                <label for="nome" class="criar_nova_conta">Nome completo</label><br>
+                                <input type="text" name="txt_nome" id="txt_nome" class="form-control">
+                            </div>
+                          -->
+              <div class="form-group">
+                <label for="idade" class="criar_nova_conta">Idade</label><br>
+                <input type="text" name="txt_idade" id="txt_idade" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="email" class="criar_nova_conta">E-mail</label><br>
+                <input type="text" name="txt_email" id="txt_email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="senha" class="criar_nova_conta">Senha</label><br>
+                <input type="password" name="txt_senha" id="txt_senha" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="senha2" class="criar_nova_conta">Confirmação de Senha</label><br>
+                <input type="password" name="txt_senha2" id="txt_senha2" class="form-control">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn_cancelar" class="btn" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btn_salvar" class="btn ">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+  <script>
+
+    // Declara uma função para processar o formulário de login
+    function processaFormLogin(event) {
+      // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+      event.preventDefault();
+
+      // Obtem os dados de login e senha a partir do formulário de login
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Valida login e se estiver ok, redireciona para tela inicial da aplicação
+      //String sql = "select * from tabela_Usuarios where campo_email = ? and campo_senha = ?"; PreparedStatement prep = con.prepareStatement(sql); prep.setString(1,email); prep.setString(2,senha);
+      resultadoLogin = loginUser(username, password);
+      if (resultadoLogin) {
+        window.location.href = 'index.html';
+      }
+      else { // Se login falhou, avisa ao usuário
+        alert('Usuário ou senha incorretos');
+      }
+    }
+
+    function salvaLogin(event) {
+      // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+      event.preventDefault();
+
+      // Obtem os dados do formulário
+      let login = document.getElementById('txt_login').value;
+      for (var i = 0; i < db_usuarios.usuarios.length; i++) {
+        let login2 = db_usuarios.usuarios[i].login;
+        if (login == login2) {
+          alert('Este usuario ja existe')
+          return
+        }
+      }
+      //let nome = document.getElementById('txt_nome').value;
+      let email = document.getElementById('txt_email').value;
+      for (var i = 0; i < db_usuarios.usuarios.length; i++) {
+        let email2 = db_usuarios.usuarios[i].email;
+        if (email == email2) {
+          alert('Este email ja esta cadastrado')
+          return
+        }
+      }
+      let senha = document.getElementById('txt_senha').value;
+      let senha2 = document.getElementById('txt_senha2').value;
+      if (senha != senha2) {
+        alert('As senhas informadas não conferem.');
+        return
+      }
+
+      // Adiciona o usuário no banco de dados
+      addUser(login, senha, email);
+      alert('Conta criada com sucesso.');
+
+      // Oculta a div modal do login
+      //document.getElementById ('loginModal').style.display = 'none';
+      $('#loginModal').modal('hide');
+    }
+
+    // Associa a funçao processaFormLogin  formulário adicionado um manipulador do evento submit
+    document.getElementById('login-form').addEventListener('submit', processaFormLogin);
+
+
+    // Associar salvamento ao botao
+    document.getElementById('btn_salvar').addEventListener('click', salvaLogin);
+  </script>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="row">
+        <p class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 T-b">Copyright 2022. META Views. Todos os direitos
+          reservados</p>
+        <a class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3"> <b class="O-b">META</b><span> <b
+              class="E-v">Views</b></span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

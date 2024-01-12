@@ -1,0 +1,368 @@
+/* Geral -Inicio- */
+html{
+	padding: 0px;
+	margin: 0px;
+  background-color: black
+}
+
+#card-body-css{
+color:rgba(90, 89, 89, 0.616);
+}
+
+body{
+	background-image: url(imagens/Movie1.jpg);
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 150px;
+}
+
+
+.video{
+	height: 900px;
+}
+.h5-video{
+	font-size: 500%;
+	padding-bottom: 350px;
+}
+/* Geral -Fim- */
+
+
+
+
+/* Buscar (Filtro) */
+
+.pesquisa{
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: end;
+}
+#texto{
+  float: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.bnt{
+  width: 40px;
+  height: 30px;
+  background-color: #177400;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#texto:focus{
+  border: solid 2px #2f4550
+}
+#inputButton{
+  background-color: #1c8302d0;
+  border: #1c8302d0;
+  color: #ffffffd0;
+  padding: 2px 5px 2px 5px;
+}
+.buttom{
+	background-color: rgb(21, 255, 0);
+	border: #fff;
+	margin-right: 0px;
+	padding: 2px 5px 2px 5px;
+	margin-top: 10px;
+}
+/* Buscar (Filtro) -Fim- */
+
+
+
+
+/* Botao sair */
+.botao_sair{
+  color: rgb(0, 0, 0);
+	background-color:#ff020200;
+	border: #fff;
+	margin-top: 0px;
+  margin-right: -50px;
+  padding: 0px 20px 0px 10px;
+}
+.b_s{
+  color: rgb(37, 37, 37);
+  width: 40px;
+  height: 30px;
+  padding: 0px 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 367PX){
+.botao_sair{margin-right: 230px;}
+.botao_sair{margin-top: 10px;}
+}
+/* Botao sair -Fim- */
+
+
+
+
+
+/* cabecalho -Inicio- */
+.cabecalho{
+	background-color: black;
+	margin-bottom: -60px;
+	z-index: 2;
+	position: relative;
+	align-items: center;
+}
+.cabecalho .nav-link{
+	color: white;
+	align-items: center;
+	margin-left: 20px;
+	font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+	font-size: 110%;
+}
+.collapse{
+	align-items: center;
+  margin-left: 50px;
+}
+#carouselExampleCaptions{
+	margin-top: -90px;
+	background-image: url(imagens/f.jpeg);
+	background-position: center;
+
+}
+
+.aumentar{
+	height: 900px;
+}
+@media screen and (max-width: 800PX){
+	.h5-video{padding-bottom: -300px;}
+	.h5-video{font-size: 500%;}
+
+}
+/* cabecalho -Fim- */
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+
+/* cabecalho 
+-------------------------------------------------- */
+
+.navbar.top-bar {
+	border-radius: 0;
+	padding: 16px 0;
+	z-index: 16;
+}
+.navbar-toggler {
+	border: 1px solid rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+	position: absolute;
+	right: 21px;
+	background-color: rgba(0, 0, 0, 0.479);
+}
+.sps {
+	padding: 1em .5em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transition: all 0.25s ease;
+	width: 100%;
+}
+.sps--abv {
+	background-color:rgba(0, 0, 0, 0.4);
+	color: #09ff00;
+}
+.sps--blw {
+	background-color: #09ff00;
+	color: #fff;
+}
+.top-bar a.navbar-brand {
+	color: #fff;
+	font-size: 26px;
+	font-weight: 800;
+	padding: 5px 0 0 10px;
+	text-transform: uppercase;
+}
+.sps--blw.top-bar a.navbar-brand {
+	color: #000;
+}
+.top-bar a.navbar-brand span {
+	color: #09ff00;
+}
+.top-bar .nav-link {
+	color: rgb(255, 255, 255);
+	font-size: 16px;
+	font-weight: 500;
+	padding: 12px 18px!important;
+}
+.sps--blw.top-bar .nav-link {
+	color: rgb(21, 255, 0)
+}
+.top-bar .navbar-nav .nav-item {
+	margin: 0
+}
+.top-bar .nav-link:hover, .top-bar .nav-item.active a {
+	color: #fff;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	border-radius: 0;
+	z-index: 100;
+}
+.sps--blw.top-bar .nav-link:hover, .sps--blw.top-bar .nav-item.active a {
+	color: #09ff00;
+	border-bottom: none;
+	border-radius: 0;
+}
+
+@media screen and (max-width: 980PX){
+	.top-bar .nav-link{color: #09ff00;}
+	.top-bar .nav-link {background-color: rgba(0, 0, 0, 0.63);}
+	.top-bar .nav-link{padding-right: 20px;}
+	.navbar-toggler{z-index: 1000;}
+
+}
+
+@media screen and (max-width: 600PX){
+	.top-bar a.navbar-brand{font-size: 240%;}
+	.top-bar a.navbar-brand{padding-right: 90px;}
+
+}
+/* cabecalho -Fim- */
+
+
+
+
+
+/* Distanciar */
+.AcessarFilmes{
+  margin-right: 10px;
+}
+
+
+
+/* Conteudo */
+.info{
+  color: white;
+  margin-top: 30px;
+}
+.info1{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.info2{
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+.info3{
+  text-align: justify;
+}
+.fas{
+  padding-right: 20px;
+  font-size: 20px;
+  color: #09ff00;
+}
+.far{
+  padding-right: 20px;
+  font-size: 20px;
+  color: #09ff00;
+}
+.play{
+  color: #09ff00;
+}
+
+
+
+
+/* Ver Filme*/
+
+.ti-tra-f{
+  font-size: 50px; 
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.ti-tra-f-2{
+  font-size: 40px; 
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+
+
+
+/* Avaliar*/
+#Avaliar{
+  height: 300px;
+  margin-top: 50px;
+}
+#notaExibida {
+	font-size: 12px;
+}
+#salvarNota{
+	color: white;
+	background-color: #09ff0081;
+	padding: 3px 50px 3px 50px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/* Comentar*/
+
+#table-Comentario{
+  color:white     
+}
+
+
+
+.ti-com-f{
+  font-size: 40px; 
+  color: #09ff0081;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.usuariof{
+  font-size: 20px; 
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.comentariof{
+  font-size: 20px; 
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+#btnInsert{
+  color: white;
+  background-color: #09ff0081	;
+  padding: 3px 50px 3px 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+
+/* Colocar Fundo */
+.ColocarFundo{
+  background-color: black;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+
+/*Rodape*/
+.rodape{
+	background-color: black;
+	padding: 100px 0px 20px 0px;
+}
+.O-b{
+	color: white;
+}
+.E-v{
+	color: #09ff00;
+}
+.T-b{
+	color: white;
+	font-size: 80%;
+}
