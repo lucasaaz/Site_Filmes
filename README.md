@@ -14,3 +14,7 @@
 - Além disso, os usuários têm a possibilidade de comentar sobre o filme ou série diretamente na página correspondente.
 
 - O MetaViews oferece um perfil de usuário intuitivo, proporcionando uma experiência de navegação facilitada e personalizada.
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width="40px"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" width="40px"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" width="40px"/>&nbsp;
